@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            background-image: url("Items/bg.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        #main {
+            background-color: rgb(75, 70, 67);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #clculator {
+            padding: 7px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 2px;
+            border: 2px solid black;
+            height: 260px;
+            width: 220px;
+        }
+
+        #io {
+            border-radius: 10px;
+            background-color: white;
+            grid-column: span 4;
+            text-align: right;
+            font-size: 2rem;
+            padding: 3px 6px 0 0;
+            height: 40px;
+            margin-bottom: -10px;
+        }
+
+        .btn {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            font-weight: 550;
+            font-size: 20px;
+            box-shadow: inset black 0px -3px 4px 0px;
+        }
+
+        .btn:hover {
+            background-color: rgba(35, 44, 43, 0.712);
+            color: white;
+        }
+
+        .big-btn2 {
+            grid-row: span 2;
+        }
+
+        .big-btn1 {
+            grid-column: span 2;
+        }
+    </style>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <section id="main">
+        <div id="clculator">
+            <span id="io">00</span>
+            <button class="btn" id="btnNo-AC">AC</button>
+            <button class="btn" id="btnNo-DEL">DEL</button>
+            <button class="btn" id="btnNo-divi">&divide;</button>
+            <button class="btn" id="btnNo-multi">&times;</button>
+            <button class="btn" id="btnNo-7">7</button>
+            <button class="btn" id="btnNo-8">8</button>
+            <button class="btn" id="btnNo-9">9</button>
+            <button class="btn" id="btnNo-minu">-</button>
+            <button class="btn" id="btnNo-4">4</button>
+            <button class="btn" id="btnNo-5">5</button>
+            <button class="btn" id="btnNo-6">6</button>
+            <button class="btn" id="btnNo-plus">+</button>
+            <button class="btn" id="btnNo-1">1</button>
+            <button class="btn" id="btnNo-2">2</button>
+            <button class="btn" id="btnNo-3">3</button>
+            <button class="btn big-btn2" id="btnNo-equal">=</button>
+            <button class="btn big-btn1" id="btnNo-0">0</button>
+            <button class="btn" id="btnNo-dot">.</button>
+        </div>
+    </section>
+    <script>
+        let equalSound=new Audio("Items/equal.mp3")
+        let tap=new Audio("Items/tap.m4a");
+        let io = document.getElementById("io");
+        io.innerHTML = " ";
+        let AC = document.getElementById("btnNo-AC");
+        let DEL = document.getElementById("btnNo-DEL");
+        let divi = document.getElementById("btnNo-divi");
+        let multi = document.getElementById("btnNo-multi");
+        let _7 = document.getElementById("btnNo-7");
+        let _8 = document.getElementById("btnNo-8");
+        let _9 = document.getElementById("btnNo-9");
+        let minu = document.getElementById("btnNo-minu");
+        let _4 = document.getElementById("btnNo-4");
+        let _5 = document.getElementById("btnNo-5");
+        let _6 = document.getElementById("btnNo-6");
+        let plus = document.getElementById("btnNo-plus");
+        let _1 = document.getElementById("btnNo-1");
+        let _2 = document.getElementById("btnNo-2");
+        let _3 = document.getElementById("btnNo-3");
+        let equal = document.getElementById("btnNo-equal");
+        let _0 = document.getElementById("btnNo-0");
+        let dot = document.getElementById("btnNo-dot");
+        _0.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = io.innerHTML + "0"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        _1.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = io.innerHTML + "1"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        _2.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = io.innerHTML + "2"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        _3.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = io.innerHTML + "3"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        _4.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = io.innerHTML + "4"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        _5.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = io.innerHTML + "5"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        _6.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = io.innerHTML + "6"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        _7.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = io.innerHTML + "7"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        _8.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = io.innerHTML + "8"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        _9.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = io.innerHTML + "9"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        AC.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = ""
+        });
+        DEL.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = io.innerHTML.slice(0, -1)
+        });
+        dot.addEventListener('click', function () {
+            tap.play();
+            io.innerHTML = io.innerHTML + "."
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        var data;
+        var operation;
+        plus.addEventListener('click', function () {
+            tap.play();
+            num1 = io.innerHTML;
+            operation = "+";
+            io.innerHTML = io.innerHTML + "+";
+
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        minu.addEventListener('click', function () {
+            tap.play();
+            operation = "-";
+            io.innerHTML = io.innerHTML + "-"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        multi.addEventListener('click', function () {
+            tap.play();
+            operation = "*";
+            io.innerHTML = io.innerHTML + "*"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+        divi.addEventListener('click', function () {
+            tap.play();
+            operation = "/";
+            io.innerHTML = io.innerHTML + "/"
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+
+        equal.addEventListener('click', function () {
+            equalSound.play();
+            data = io.innerHTML;
+            switch (operation) {
+                case "+": {
+                    let array = [];
+                    let newArray = [];
+                    array = data.split("+");
+                    let i;
+                    for (i = 0; i < array.length; i++) {
+                        newArray.push(Number(array[i]));
+                    }
+                    let total = 0;
+                    for (i = 0; i < newArray.length; i++) {
+                        total = total + newArray[i];
+                    }
+                    io.innerHTML = total;
+                    break;
+                }
+                case "-": {
+                    let array = [];
+                    let newArray = [];
+                    array = data.split("-");
+                    for (i = 0; i < array.length; i++) {
+                        newArray.push(Number(array[i]));
+                    }
+                    total = 0;
+                    total = newArray[0] - newArray[1];
+                    io.innerHTML = total;
+                    break;
+                }
+                case "*": {
+                    let array = [];
+                    let newArray = [];
+                    array = data.split("*");
+                    for (i = 0; i < array.length; i++) {
+                        newArray.push(Number(array[i]));
+                    }
+                    total = 1;
+                    for (i = 0; i < newArray.length; i++) {
+                        total = total * newArray[i];
+                    }
+                    io.innerHTML = total;
+                    break;
+                }
+                case "/": {
+                    let array = [];
+                    let newArray = [];
+                    array = data.split("/");
+                    for (i = 0; i < array.length; i++) {
+                        newArray.push(Number(array[i]));
+                    }
+                    total = 0;
+                    total = newArray[0] / newArray[1];
+                    io.innerHTML = total;
+                    break;
+                }
+            }
+            if (io.innerHTML.length >= 15) {
+                alert("Value is too large...");
+                io.innerHTML = " ";
+            }
+        });
+    </script>
+</body>
+
+</html>
